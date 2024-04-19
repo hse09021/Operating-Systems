@@ -11,31 +11,53 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/fork
+~MSle0~/fork_rt
 
 # Command Line History (newest to oldest):
 :wq
-|2,0,1711894067,,"wq"
+|2,0,1713523920,,"wq"
 :q
-|2,0,1711892473,,"q"
+|2,0,1713523665,,"q"
+:q!
+|2,0,1713521266,,"q!"
+:qw
+|2,0,1713519256,,"qw"
 :ㅂ
 |2,0,1711891861,,"ㅂ"
 :'<,'>norm 2x
 |2,0,1711890932,,"'<,'>norm 2x"
 :'<,'>norm i//
 |2,0,1711889526,,"'<,'>norm i//"
-:q!
-|2,0,1710670439,,"q!"
 :Q
 |2,0,1710670429,,"Q"
 :Wq
 |2,0,1710669205,,"Wq"
 
 # Search String History (newest to oldest):
-?/fork
-|2,1,1711892794,47,"fork"
+?/fork_rt
+|2,1,1713523675,47,"fork_rt"
+?/fort_rt
+|2,1,1713522923,47,"fort_rt"
+? \<c\>
+|2,1,1713522724,,"\\<c\\>"
 ?/UPROG
-|2,1,1711892515,47,"UPROG"
+|2,1,1713522561,47,"UPROG"
+?/uproc
+|2,1,1713522550,47,"uproc"
+?/fork
+|2,1,1713519873,47,"fork"
+?/allocproc
+|2,1,1713519815,47,"allocproc"
+?/unlockproc
+|2,1,1713519805,47,"unlockproc"
+?/unlock_proc
+|2,1,1713519799,47,"unlock_proc"
+?/scheduler(
+|2,1,1713519502,47,"scheduler("
+?/fork(
+|2,1,1713519072,47,"fork("
+?/fork_r
+|2,1,1713518950,47,"fork_r"
 ?/ps
 |2,1,1711890120,47,"ps"
 ?/alloc
@@ -54,251 +76,497 @@
 # Debug Line History (newest to oldest):
 
 # Registers:
-"1	CHAR	0
+"0	CHAR	0
+	 // Process is done running for now.
+	      // It should have changed its p->state before coming back.
+	      
+|3,0,0,0,3,0,1713520604," // Process is done running for now.","      // It should have changed its p->state before coming back.","      "
+""1	CHAR	0
+	void
+	switch_context(struct cpu c, struct proc p) {
+	   // Switch to chosen process.  It is the process's job
+	   // to release ptable.lock and then reacquire it
+	   // before jumping back to us.
+	   c->proc = p;
+	   switchuvm(p);
+	   p->state = RUNNING;
+	
+	   swtch(&(c->scheduler), p->context);
+	   switchkvm();
+	
+	   // Process is done running for now.
+	   // It should have changed its p->state before coming back.
+	   c->proc = 0;
+	}
+	
+|3,1,1,0,17,0,1713521924,"void","switch_context(struct cpu c, struct proc p) {","   // Switch to chosen process.  It is the process's job","   // to release ptable.lock and then reacquire it","   // before jumping back to us.","   c->proc = p;","   switchuvm(p);","   p->state = RUNNING;","","   swtch(&(c->scheduler), p->context);","   switchkvm();","","   // Process is done running for now.","   // It should have changed its p->state before coming back.",>17
+|<"   c->proc = 0;","}",""
+"2	CHAR	0
+	c->proc = p;
+	   switchuvm(p);
+	
+|3,0,2,0,3,0,1713521497,"c->proc = p;","   switchuvm(p);",""
+"3	CHAR	0
+	// Switch to chosen process.  It is the process's job
+	      // to release ptable.lock and then reacquire it
+	      // before jumping back to us.
+	      c->proc = p;
+	      switchuvm(p);
+	      p->state = RUNNING;
+	
+	      swtch(&(c->scheduler), p->context);
+	      switchkvm();
+	
+	      // Process is done running for now.
+	      // It should have changed its p->state before coming back.
+	      c->proc = 0;
+	
+|3,0,3,0,14,0,1713521489,"// Switch to chosen process.  It is the process's job","      // to release ptable.lock and then reacquire it","      // before jumping back to us.","      c->proc = p;","      switchuvm(p);","      p->state = RUNNING;","","      swtch(&(c->scheduler), p->context);","      switchkvm();","","      // Process is done running for now.","      // It should have changed its p->state before coming back.","      c->proc = 0;",""
+"4	CHAR	0
+	// Switch to chosen process.  It is the process's job
+	      // to release ptable.lock and then reacquire it
+	      // before jumping back to us.
+	      c->proc = p;
+	      switchuvm(p);
+	      p->state = RUNNING;
+	
+	      swtch(&(c->scheduler), p->context);
+	      switchkvm();
+	
+	      // Process is done running for now.
+	      // It should have changed its p->state before coming back.
+	      c->proc = 0;
+|3,0,4,0,13,0,1713521421,"// Switch to chosen process.  It is the process's job","      // to release ptable.lock and then reacquire it","      // before jumping back to us.","      c->proc = p;","      switchuvm(p);","      p->state = RUNNING;","","      swtch(&(c->scheduler), p->context);","      switchkvm();","","      // Process is done running for now.","      // It should have changed its p->state before coming back.","      c->proc = 0;"
+"5	LINE	0
+	      // Switch to chosen process.  It is the process's job
+	      // to release ptable.lock and then reacquire it
+|3,0,5,1,2,0,1713521384,"      // Switch to chosen process.  It is the process's job","      // to release ptable.lock and then reacquire it"
+"6	CHAR	0
+	// Switch to chosen process.  It is the process's job
+	
+|3,0,6,0,2,0,1713521350,"// Switch to chosen process.  It is the process's job",""
+"7	CHAR	0
+	  int pid;
+	
+	
+	  /* ******************** */
+	  /* * WRITE YOUR CODE    */
+	  /* ******************** */
+	
+	
+	  return pid;
+	
+|3,0,7,0,10,0,1713519147,"  int pid;","","","  /* ******************** */","  /* * WRITE YOUR CODE    */","  /* ******************** */","","","  return pid;",""
+"8	CHAR	0
 			/* ******************** */
 			/* * WRITE YOUR CODE    */
 			/* ******************** */
 	
-|3,0,1,0,4,0,1711890984,"		/* ******************** */","		/* * WRITE YOUR CODE    */","		/* ******************** */",""
-"2	CHAR	0
+|3,0,8,0,4,0,1711890984,"		/* ******************** */","		/* * WRITE YOUR CODE    */","		/* ******************** */",""
+"9	CHAR	0
 		/* ******************** */
 			/* * WRITE YOUR CODE    */
 			/* ******************** */
 	
 	
-|3,0,2,0,5,0,1711890963,"	/* ******************** */","		/* * WRITE YOUR CODE    */","		/* ******************** */","",""
-"3	LINE	0
-	
-|3,0,3,1,1,0,1711888068,""
-""-	CHAR	0
-	)
-|3,1,36,0,1,0,1711891852,")"
+|3,0,9,0,5,0,1711890963,"	/* ******************** */","		/* * WRITE YOUR CODE    */","		/* ******************** */","",""
+"-	CHAR	0
+	 
+|3,0,36,0,1,0,1713521512," "
 
 # File marks:
-'0  7  63  ~/.git/config
-|4,48,7,63,1711894068,"~/.git/config"
-'1  221  0  ~/new/xv6_ssu_syscall/proc.c
-|4,49,221,0,1711892893,"~/new/xv6_ssu_syscall/proc.c"
-'2  202  34  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,50,202,34,1711892858,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
-'3  118  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,51,118,0,1711892628,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
-'4  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,52,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
-'5  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,53,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
-'6  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,54,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
-'7  134  19  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/syscall.c
-|4,55,134,19,1711892413,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/syscall.c"
-'8  78  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/trap.c
-|4,56,78,0,1711892308,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/trap.c"
-'9  26  15  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user.h
-|4,57,26,15,1711892290,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user.h"
+'0  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,48,269,9,1713523920,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'1  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,49,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+'2  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,50,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+'3  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,51,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+'4  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,52,410,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'5  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,53,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'6  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,54,410,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'7  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,55,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'8  373  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,56,373,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'9  373  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,57,373,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
 
 # Jumplist (newest first):
--'  7  63  ~/.git/config
-|4,39,7,63,1711894068,"~/.git/config"
--'  1  0  ~/.git/config
-|4,39,1,0,1711894020,"~/.git/config"
--'  221  0  ~/new/xv6_ssu_syscall/proc.c
-|4,39,221,0,1711892893,"~/new/xv6_ssu_syscall/proc.c"
--'  221  0  ~/new/xv6_ssu_syscall/proc.c
-|4,39,221,0,1711892893,"~/new/xv6_ssu_syscall/proc.c"
--'  202  34  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,202,34,1711892858,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  202  34  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,202,34,1711892858,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  114  26  ~/new/xv6_ssu_syscall/proc.c
-|4,39,114,26,1711892798,"~/new/xv6_ssu_syscall/proc.c"
--'  114  26  ~/new/xv6_ssu_syscall/proc.c
-|4,39,114,26,1711892798,"~/new/xv6_ssu_syscall/proc.c"
--'  106  46  ~/new/xv6_ssu_syscall/proc.c
-|4,39,106,46,1711892796,"~/new/xv6_ssu_syscall/proc.c"
--'  106  46  ~/new/xv6_ssu_syscall/proc.c
-|4,39,106,46,1711892796,"~/new/xv6_ssu_syscall/proc.c"
--'  19  12  ~/new/xv6_ssu_syscall/proc.c
-|4,39,19,12,1711892795,"~/new/xv6_ssu_syscall/proc.c"
--'  19  12  ~/new/xv6_ssu_syscall/proc.c
-|4,39,19,12,1711892795,"~/new/xv6_ssu_syscall/proc.c"
--'  537  0  ~/new/xv6_ssu_syscall/proc.c
-|4,39,537,0,1711892794,"~/new/xv6_ssu_syscall/proc.c"
--'  537  0  ~/new/xv6_ssu_syscall/proc.c
-|4,39,537,0,1711892794,"~/new/xv6_ssu_syscall/proc.c"
--'  114  26  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,114,26,1711892695,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  114  26  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,114,26,1711892695,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  106  46  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,106,46,1711892694,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  106  46  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,106,46,1711892694,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  18  12  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,18,12,1711892693,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  18  12  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,18,12,1711892693,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  583  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,583,0,1711892687,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  583  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,583,0,1711892687,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  573  16  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,573,16,1711892681,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  573  16  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c
-|4,39,573,16,1711892681,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/proc.c"
--'  118  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,118,0,1711892628,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  118  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,118,0,1711892628,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  118  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,118,0,1711892628,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  118  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,118,0,1711892628,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  118  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,118,0,1711892628,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  118  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,118,0,1711892628,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  114  23  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,114,23,1711892597,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  114  23  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,114,23,1711892597,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  114  23  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,114,23,1711892597,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  114  23  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,114,23,1711892597,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  114  23  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,114,23,1711892597,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  114  23  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c
-|4,39,114,23,1711892597,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/sysproc.c"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  187  14  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,187,14,1711892537,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  258  24  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile
-|4,39,258,24,1711892515,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/Makefile"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  1  0  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c
-|4,39,1,0,1711892473,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/user/test_nice.c"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
--'  124  21  ~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h
-|4,39,124,21,1711892428,"~/20240331/xv6-ssu/templates/xv6_ssu_syscall/defs.h"
+-'  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,269,9,1713523920,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  391  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,391,3,1713523675,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,410,3,1713523669,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+-'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+-'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+-'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+-'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+-'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+-'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+-'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  373  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,373,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522779,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  371  42  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,371,42,1713522736,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  379  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,379,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  377  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,377,3,1713522719,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713522681,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
 
 # History of marks within files (newest to oldest):
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+	*	1713523919	0
+	"	269	9
+	^	269	10
+	.	269	9
+	+	230	0
+	+	249	24
+	+	412	4
+	+	419	59
+	+	412	6
+	+	408	18
+	+	408	4
+	+	351	0
+	+	93	0
+	+	92	22
+	+	250	22
+	+	408	28
+	+	408	8
+	+	409	0
+	+	393	31
+	+	411	4
+	+	412	4
+	+	413	29
+	+	419	6
+	+	413	27
+	+	413	21
+	+	413	39
+	+	413	62
+	+	414	5
+	+	416	5
+	+	419	12
+	+	413	26
+	+	413	4
+	+	413	21
+	+	416	20
+	+	419	6
+	+	417	0
+	+	404	54
+	+	397	9
+	+	413	22
+	+	413	16
+	+	413	11
+	+	413	4
+	+	427	4
+	+	427	15
+	+	413	0
+	+	419	59
+	+	419	6
+	+	414	0
+	+	419	6
+	+	427	0
+	+	419	6
+	+	423	0
+	+	427	3
+	+	427	0
+	+	412	6
+	+	413	38
+	+	414	0
+	+	417	29
+	+	418	13
+	+	422	4
+	+	424	0
+	+	428	0
+	+	390	0
+	+	372	0
+	+	373	42
+	+	404	4
+	+	403	0
+	+	402	21
+	+	405	0
+	+	270	0
+	+	269	9
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+	*	1713523663	0
+	"	1	0
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+	*	1713523101	0
+	"	185	7
+	^	189	14
+	.	189	13
+	+	187	13
+	+	189	13
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+	*	1713522941	0
+	"	101	12
+	^	101	13
+	.	101	12
+	+	99	13
+	+	98	65
+	+	100	3
+	+	101	0
+	+	98	53
+	+	101	24
+	+	102	0
+	+	96	13
+	+	98	56
+	+	101	12
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/defs.h
+	*	1713522305	0
+	"	124	24
+	^	124	25
+	.	124	24
+	+	115	51
+	+	125	0
+	+	124	24
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.h
+	*	1713519754	0
+	"	53	52
+	^	53	53
+	.	53	52
+	+	53	52
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/syscall.h
+	*	1713519335	0
+	"	2	19
+	^	2	20
+	.	2	19
+	+	23	19
+	+	22	19
+	+	21	19
+	+	20	19
+	+	19	19
+	+	18	19
+	+	17	19
+	+	16	19
+	+	15	19
+	+	14	19
+	+	13	19
+	+	12	19
+	+	11	19
+	+	10	19
+	+	9	19
+	+	8	19
+	+	7	19
+	+	6	19
+	+	5	19
+	+	4	19
+	+	3	19
+	+	2	19
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/syscall.c
+	*	1713519325	0
+	"	140	0
+	^	140	1
+	.	130	25
+	+	106	28
+	+	130	25
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/user.h
+	*	1713519291	0
+	"	27	0
+	^	26	22
+	.	26	21
+	+	26	21
+
+> ~/20240421/xv6-ssu/templates/xv6_ssu_sched/usys.S
+	*	1713519218	0
+	"	32	15
+	^	32	16
+	.	32	15
+	+	32	0
+	+	32	15
 
 > ~/.git/config
 	*	1711894065	0

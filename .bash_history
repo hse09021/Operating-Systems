@@ -439,3 +439,134 @@ cd xv6_ssu_syscall
 ls
 proc.c
 vi proc.c
+ls
+cd 20240331
+ls
+cd xv6-ssu
+ls
+cd templates
+ls
+cd xv6_ssu_syscall
+ls
+vi sysproc.c
+make qemu-nox
+vi proc.c
+make qemu-nox
+make clean
+cd ..
+ls
+tar cvzf xv6_ssu_syscall_20211725.tar.gz xv6_ssu_syscall
+ls
+cd ..
+ls
+rm -rf new
+ls
+git init
+git remote add origin https://github.com/hse09021/Operating-Systems.git
+git remote -v
+git config
+git config user.name "hse09021"
+git config user.email "hse09021@naver.com"
+git commit -m "update p0 p1"
+git add .
+ls
+git status
+git unstage .bash_history
+git commit -m "update p0 p1"
+git push
+git push --set-upstream origin master
+git config --global user.name "hse09021"
+git config --global user.email "hse09021@naver.com"
+git config --global credential.helper cache
+ls
+ls -al
+cd .git
+ls
+vi config
+cd ..
+ls
+git push
+git push origin master
+ls
+cd 20240317
+ls
+ls -al
+cd xv6-ssu
+ls
+ls -al
+rm -rf .git
+rm -rf .gitignore
+ls
+ls -al
+cd ..
+ls -al
+cd ..
+ls
+cd 20240331
+ls
+cd xv6-ssu
+ls
+ls -al
+rm -rf .gitignore
+rm -rf .git
+ls -al
+cd ..
+git add .
+git commit -m "update p0 p1"
+git push origin master
+git add .
+git commit -m "update p0 p1"
+git push origin master
+ls
+git add .
+git commit -m "update p0 p1"
+ls
+cd 20240331
+ls
+cd xv6-ssu
+cd templates
+ls
+cd ..
+mv 20240331/xv6-ssu/templates/xv6_ssu_syscall_20211725.tar.gz xv6_ssu_syscall_20211725.tar.gz
+ls
+git add .
+git commit -m "update p0 p1"
+git push origin master
+ls -al
+rm -rf .git
+ls
+ls -al
+git init
+ls -al
+cd .git
+ls
+cd ..
+git add .
+git commit -m "update P0 P1"
+git push origin master
+git remote -v
+git remote add origin
+git remote add origin https://github.com/hse09021/Operating-Systems.git
+git remote -v
+git push
+git push origin master
+ssh status start
+ssh
+ssh service
+service ssh start
+ls
+cd cd usr
+cd usr
+ls
+cd ..
+cd ~
+ls
+cp 20240331 20240421
+cp -r 20240331 20240421
+ls
+cd 20240421
+ls
+cd xv6-ssu
+ls
+cd templates
+ls
