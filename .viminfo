@@ -14,10 +14,10 @@
 ~MSle0~/fork_rt
 
 # Command Line History (newest to oldest):
+:wq
+|2,0,1714378732,,"wq"
 :q
 |2,0,1713529623,,"q"
-:wq
-|2,0,1713523920,,"wq"
 :q!
 |2,0,1713521266,,"q!"
 :qw
@@ -175,34 +175,52 @@
 |3,0,36,0,1,0,1713521512," "
 
 # File marks:
-'0  1  1  ~/dl
-|4,48,1,1,1713529623,"~/dl"
-'1  1  0  ~/.git/COMMIT_EDITMSG
-|4,49,1,0,1713526359,"~/.git/COMMIT_EDITMSG"
-'2  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,50,269,9,1713523920,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
-'3  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
-|4,51,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
-'4  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
-|4,52,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
-'5  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,53,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
-'6  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,54,410,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
-'7  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,55,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
-'8  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,56,410,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
-'9  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,57,408,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'0  6  7  ~/.gitignore
+|4,48,6,7,1714378732,"~/.gitignore"
+'1  1  1  ~/dl
+|4,49,1,1,1713529623,"~/dl"
+'2  1  0  ~/.git/COMMIT_EDITMSG
+|4,50,1,0,1713526359,"~/.git/COMMIT_EDITMSG"
+'3  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,51,269,9,1713523920,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'4  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,52,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+'5  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,53,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+'6  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
+|4,54,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
+'7  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,55,410,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'8  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,56,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+'9  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,57,410,3,1713522906,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
 
 # Jumplist (newest first):
+-'  6  7  ~/.gitignore
+|4,39,6,7,1714378732,"~/.gitignore"
+-'  1  0  ~/.gitignore
+|4,39,1,0,1714378649,"~/.gitignore"
+-'  1  1  ~/dl
+|4,39,1,1,1713529623,"~/dl"
 -'  1  1  ~/dl
 |4,39,1,1,1713529623,"~/dl"
 -'  1  0  ~/.git/COMMIT_EDITMSG
 |4,39,1,0,1713526359,"~/.git/COMMIT_EDITMSG"
 -'  1  0  ~/.git/COMMIT_EDITMSG
 |4,39,1,0,1713526359,"~/.git/COMMIT_EDITMSG"
+-'  1  0  ~/.git/COMMIT_EDITMSG
+|4,39,1,0,1713526359,"~/.git/COMMIT_EDITMSG"
+-'  1  0  ~/.git/COMMIT_EDITMSG
+|4,39,1,0,1713526359,"~/.git/COMMIT_EDITMSG"
+-'  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,269,9,1713523920,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,269,9,1713523920,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,269,9,1713523920,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,269,9,1713523920,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
 -'  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
 |4,39,269,9,1713523920,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
 -'  269  9  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
@@ -219,6 +237,22 @@
 |4,39,391,3,1713523675,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
 -'  391  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
 |4,39,391,3,1713523675,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  391  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,391,3,1713523675,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  391  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,391,3,1713523675,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  391  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,391,3,1713523675,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  391  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,391,3,1713523675,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,410,3,1713523669,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,410,3,1713523669,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,410,3,1713523669,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
+|4,39,410,3,1713523669,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
 -'  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
 |4,39,410,3,1713523669,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
 -'  410  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
@@ -243,6 +277,54 @@
 |4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
 -'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
 |4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  1  0  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c
+|4,39,1,0,1713523665,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/fork_rt.c"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
 -'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
 |4,39,185,7,1713523104,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
 -'  185  7  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
@@ -307,98 +389,23 @@
 |4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
 -'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
 |4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  101  12  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c
-|4,39,101,12,1713522942,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/sysproc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
--'  408  3  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c
-|4,39,408,3,1713522926,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/proc.c"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
+-'  189  13  ~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile
+|4,39,189,13,1713523050,"~/20240421/xv6-ssu/templates/xv6_ssu_sched/Makefile"
 
 # History of marks within files (newest to oldest):
+
+> ~/.gitignore
+	*	1714378730	0
+	"	6	7
+	^	6	8
+	.	6	7
+	+	6	7
 
 > ~/dl
 	*	1713529621	0
