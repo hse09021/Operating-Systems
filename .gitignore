@@ -5,3 +5,7 @@
 .profile
 .viminfo
 .gitignore
+.cache
+.dotnet/
+.vscode-server/
+.wget-hsts
